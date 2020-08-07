@@ -1,0 +1,52 @@
+{
+    "name": "basic-network",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Procurement",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                },
+                "orderer": "300"
+            }
+        }
+    },
+    "channels": {
+        "mychannel": {
+            "orderers": [
+                "orderer.tenders.gov"
+            ],
+            "peers": {
+                "peer0.procurement.tenders.gov": {}
+            }
+        }
+    },
+    "organizations": {
+        "Procurement": {
+            "mspid": "ProcurementMSP",
+            "peers": [
+                "peer0.procurement.tenders.gov"
+            ],
+            "certificateAuthorities": [
+                "ca.tenders.gov"
+            ]
+        }
+    },
+    "orderers": {
+        "orderer.tenders.gov": {
+            "url": "grpc://localhost:7050"
+        }
+    },
+    "peers": {
+        "peer0.procurement.tenders.gov": {
+            "url": "grpc://localhost:7051"
+        }
+    },
+    "certificateAuthorities": {
+        "ca.tenders.gov": {
+            "url": "http://localhost:7054",
+            "caName": "ca.tenders.gov"
+        }
+    }
+}
